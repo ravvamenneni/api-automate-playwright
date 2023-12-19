@@ -107,11 +107,43 @@ test('Verify error message if a specific address by id is not found', async({req
 })
 
 test('Update an existing address', async({request}) => {
-    // TO DO For Ryan
+    var stringForAddress = `{
+        "id": 1846991,
+        "externalUserId": "6ECA3F97-BB96-423B-B5B7-BD8B8ACDA274",
+        "firstName": "Ryan",
+        "lastName": "D",
+        "addressLine1": "440 S Warren St",
+        "addressLine2": "",
+        "city": "Syracuse",
+        "stateProvinceRegion": "NY",
+        "zipCode": "13207",
+        "countryCode": "US",
+        "phone": "5158670780",
+        "isDefaultAddress": false
+      }`;
+
+    var bodyJasonForAddress = JSON.parse(stringForAddress);
+
+    const updateAddress = 'https://addressbook-api.tcgplayer-qa.com/v1/userAddressBooks/update?ignoreCorrections=true';
+
+    const response = await request.post(updateAddress, { data: bodyJasonForAddress });
+
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy();
+
+    // you would be able to assert on the response body like this but there is no response body for this endpoint.
+    // expect(await response.json()).toContainEqual(expect.objectContaining({
+    //     firstName: 'Ryan'
+    // }));
 })
     
 test('Set an existing address to default address', async({request}) => {
-    // TO DO For Ryan
+    const setDefault = 'https://addressbook-api.tcgplayer-qa.com/v1/6ECA3F97-BB96-423B-B5B7-BD8B8ACDA274/userAddressBooks/setdefault/1846991';
+
+    const response = await request.post(setDefault);
+
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy();
 })
 
 test('Delete an address', async({request}) => {
