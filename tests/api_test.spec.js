@@ -1,6 +1,9 @@
 import {test, expect } from '@playwright/test';
 import exp from 'constants';
 
+// AdressBooks Api swagger link:
+// https://addressbook-api.tcgplayer-qa.com/swagger/index.html
+
 var _bodyString = `{
     "data": {
         "type": "tests",
@@ -30,8 +33,8 @@ var _bodyString = `{
 var _stringForAddress = `{
     "id": 0,
     "externalUserId": "6ECA3F97-BB96-423B-B5B7-BD8B8ACDA274",
-    "firstName": "Latonia",
-    "lastName": "Howard",
+    "firstName": "Q",
+    "lastName": "D",
     "addressLine1": "7030 NW Beaver Dr",
     "addressLine2": "",
     "city": "Johnston",
@@ -89,4 +92,28 @@ test('Address API POST Request', async({request}) => {
     expect(_response.status()).toBe(200);
     
     
+})
+
+test('Get a specific address by id', async({request}) => {
+// TO DO For Qadirya
+// Send a GET request
+// https://addressbook-api.tcgplayer-qa.com/v1/6ECA3F97-BB96-423B-B5B7-BD8B8ACDA274/userAddressBook?AddressBookId=0
+})
+
+test('Verify error message if a specific address by id is not found', async({request}) => {
+    // TO DO For Qadirya
+    // Send a GET request
+    // https://addressbook-api.tcgplayer-qa.com/v1/6ECA3F97-BB96-423B-B5B7-BD8B8ACDA274/userAddressBook?AddressBookId=0
+})
+
+test('Update an existing address', async({request}) => {
+    // TO DO For Ryan
+})
+    
+test('Set an existing address to default address', async({request}) => {
+    // TO DO For Ryan
+})
+
+test('Delete an address', async({request}) => {
+    // TO DO For Bharati
 })
