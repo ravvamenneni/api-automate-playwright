@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "playwright:ui:qa": "SET \"TEST_ENV=qa\"&& npx playwright test --ui",
+    "playwright:ui:stg": "SET \"TEST_ENV=stg\"&& npx playwright test --ui"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
     "@types/node": "^20.10.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1"
   }
 }
