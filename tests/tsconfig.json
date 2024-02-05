@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": ".", // This must be specified if "paths" is.
+    "target": "es2017",
+    "module": "commonjs",
+    "baseUrl": "./", // This must be specified if "paths" is.
     "paths": {
-      "@helpers/*": ["../helpers/*"] // This mapping is relative to "baseUrl".
+      "@helpers/*": ["../helpers/*"],
+      "@constants/*": ["../constants/*"] // This mapping is relative to "baseUrl".
     }
   }
 }
